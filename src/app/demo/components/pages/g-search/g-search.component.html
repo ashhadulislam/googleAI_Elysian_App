@@ -1,0 +1,70 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<!-- <p-toolbar styleClass="fixed-top-toolbar">
+    <div class="p-toolbar-group-start text-white">
+        <button routerLink="/"
+         pButton icon="pi pi-angle-left text-2xl" class="btn btn-link nav-link text-white h-3rem w-3rem border-circle  transition-all transition-duration-200">
+
+        </button>
+    </div>
+    <div class="p-toolbar-group-center">
+        <div class="row">
+            <div class="col-12 position-relative">
+                <input style="background-color: #FFF9F9;border-radius: 20px;" class="form-control form-control-lg" type="search" placeholder="Search for anything ..." aria-label="Search">
+                <i class="pi pi-search text-2xl position-absolute" style="right: 1.5rem;top: 1.8rem;"></i>
+            </div>
+        </div>
+    </div>
+</p-toolbar> -->
+<div class="row fixed-top-toolbar">
+    <div class="col-2">
+        <button (click)="navBack()"
+         pButton icon="pi pi-angle-left text-2xl" class="btn btn-link nav-link text-white h-3rem w-3rem border-circle  transition-all transition-duration-200">
+
+        </button>
+    </div>
+    <div class="col-10">
+        <input [(ngModel)]="query" style="background-color: #FFF9F9;border-radius: 20px;" class="form-control form-control-lg" type="text" placeholder="Search for anything ...">
+        <i (click)="query != ''?search() : ''" class="pi pi-search text-2xl position-absolute" style="right: 1.5rem;top: 1.8rem;"></i>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="gcse-search"></div>
+</div> -->
+<div *ngIf="!isSearching" class="row justify-content-center" style="padding-top:4rem">
+    <ng-container *ngFor="let item of searchResults; let i=index">
+
+        <div class="card news-card">
+            <div class="card-body" style="padding:0px 10px" (click)="navigate(item.link)">
+                <div class="row">
+                    <div class="col-3" style="padding-right:0px !important">
+                        <img style="height: 75px;" class="img g-search-img img-fluid" [src]="item.image_url" onerror="this.src='./assets/elysian/news-default.png'" >
+                    </div>
+                    <div class="col-9">
+                        <div class="row text-white">
+                            <h5 class="text-white short-text-2 mb-0">{{item.title}}</h5>
+                            <span class="short-text-3">{{item.description}}</span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </ng-container>
+</div>
+<ng-container *ngIf="isSearching">
+<ng-container *ngFor="let item of faker;let i = index;">
+<div class="row justify-content-center" [style]="{'padding-top':i == 0? '4rem':''}">
+    <div class="col-3">
+        <p-skeleton width="90%" size="5rem"></p-skeleton>
+    </div>
+    <div class="col-9">
+        <p-skeleton width="100%" height="1.5rem" styleClass="mb-2"></p-skeleton>
+        <p-skeleton width="100%" height="10px"  styleClass="mb-2"></p-skeleton>
+        <p-skeleton width="100%" height="10px" styleClass="mb-2"></p-skeleton>
+        <p-skeleton width="100%" height="10px" styleClass="mb-2"></p-skeleton>
+    </div>
+</div>
+</ng-container>
+</ng-container>
+
+

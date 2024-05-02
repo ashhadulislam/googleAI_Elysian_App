@@ -1,0 +1,126 @@
+
+    <div class="row justify-content-center">
+
+        <div class="col-8 p-0" style="padding-top:2rem !important;padding-bottom:2rem !important">
+            <img class="img img-fluid" src="./assets/elysian/elysian-text.png">
+
+        </div>
+        <div class="col-12 position-relative" routerLink="/search">
+            <input style="background-color: #FFF9F9;border-radius: 20px;" class="form-control form-control-lg" type="search" placeholder="Search for anything ..." aria-label="Search">
+            <i class="pi pi-search text-2xl position-absolute" style="right: 1.5rem;top: 1.8rem;"></i>
+           <!-- <div class="p-fluid">
+
+             <span class="p-float-label">
+                [(ngModel)]="selectedItem" [suggestions]="suggestions" (completeMethod)="search($event)"
+                <p-autoComplete inputId="float-label"></p-autoComplete>
+                <label for="float-label" class="text-white">Search for anything ...</label>
+            </span>
+        </div> -->
+        </div>
+        <div class="col-12">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-5">
+                    <img style="height: 150px;" class="img img-fluid" src="assets/elysian/john.png">
+                </div>
+                <div class="col-7">
+                    <h3 class="text-white">Good Afternoon John!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h2 class="text-white mb-0">Trending News</h2>
+        </div>
+    </div>
+
+    <div class="row justify-content-center" *ngIf="isFetching">
+        <div class="col-3">
+            <button class="btn btn-link nav-link text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <p-progressSpinner   styleClass="w-3rem h-3rem" strokeWidth="6" fill="transparent" animationDuration=".5s"></p-progressSpinner>
+                </div>
+            </button>
+        </div>
+
+    </div>
+    <div *ngIf="!isFetching" class="row justify-content-center">
+        <ng-container *ngFor="let item of news">
+            <div class="card news-card">
+                <div class="card-body" style="padding:0px 10px">
+                    <div class="row">
+                        <div class="col-5">
+                            <img style="height: 75px;border-radius:10px" class="img img-fluid" [src]="item.image_url">
+                        </div>
+                        <div class="col-7">
+                            <div class="row text-white">
+                                <span class="short-text-4">
+                                    {{item.description}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </ng-container>
+
+    </div>
+    <!-- <div class="row justify-content-center">
+        <div class="card news-card">
+            <div class="card-body" style="padding:0px 10px">
+                <div class="row">
+                    <div class="col-5">
+                        <img style="height: 75px;" class="img img-fluid" src="./assets/elysian/news.png" alt="" srcset="">
+                    </div>
+                    <div class="col-7">
+                        <div class="row text-white">
+                            Fortifying India’s on the cultural perce. Fortifying India’s on the cultural perce....
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <div class="card news-card">
+            <div class="card-body" style="padding:0px 10px">
+                <div class="row">
+                    <div class="col-5">
+                        <img style="height: 75px;" class="img img-fluid" src="./assets/elysian/news.png" alt="" srcset="">
+                    </div>
+                    <div class="col-7">
+                        <div class="row text-white">
+                            Fortifying India’s on the cultural perce. Fortifying India’s on the cultural perce....
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <div class="card news-card">
+            <div class="card-body" style="padding:0px 10px">
+                <div class="row">
+                    <div class="col-5">
+                        <img style="height: 75px;" class="img img-fluid" src="./assets/elysian/news.png" alt="" srcset="">
+                    </div>
+                    <div class="col-7">
+                        <div class="row text-white">
+                            Fortifying India’s on the cultural perce. Fortifying India’s on the cultural perce....
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <div class="card news-card">
+            <div class="card-body" style="padding:0px 10px">
+                <div class="row">
+                    <div class="col-5">
+                        <img style="height: 75px;" class="img img-fluid" src="./assets/elysian/news.png" alt="" srcset="">
+                    </div>
+                    <div class="col-7">
+                        <div class="row text-white">
+                            Fortifying India’s on the cultural perce. Fortifying India’s on the cultural perce....
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div> -->
+<!-- </div> -->

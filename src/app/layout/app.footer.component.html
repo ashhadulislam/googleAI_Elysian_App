@@ -1,0 +1,88 @@
+<!-- <div class="layout-footer">
+    <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="Logo" height="20" class="mr-2"/>
+    by
+    <span class="font-medium ml-2">PrimeNG</span>
+</div> -->
+<!-- bg-gray-900 shadow-2 -->
+<!-- , 'background-image': 'linear-gradient(to right, var(--bluegray-500), var(--bluegray-800))' -->
+<!-- 'border-radius': '3rem' -->
+<!-- <p-toolbar styleClass=" fixed-bottom-toolbar justify-content-center" [style]="{ 'border-top-left-radius': '2rem','border-top-right-radius' : '2rem'  }">
+    <ng-template pTemplate="center">
+        <div class="flex  flex-wrap align-items-center gap-3">
+            <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                <div class="flex flex-column justify-content-center align-items-center">
+                    <i class="pi pi-home text-2xl"></i>
+                    <span class="font-normal">Home</span>
+                  </div>
+            </button>
+            <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                <div class="flex flex-column justify-content-center align-items-center">
+                    <i class="bi bi-chat-text text-2xl"></i>
+                    <span class="font-normal">Chat</span>
+                  </div>
+            </button>
+            <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                <div class="flex flex-column justify-content-center align-items-center">
+                    <i class="pi pi-shopping-bag text-2xl"></i>
+                    <span class="font-normal">My world</span>
+                  </div>
+            </button>
+            <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200"><i class="pi pi-user text-2xl"></i></button>
+        </div>
+    </ng-template>
+</p-toolbar> -->
+
+<!-- toolbar using bootstrap only -->
+
+    <div *ngIf="active_menu != 'Chat' && url_endpoint != '/search'" class="row text-center align-items-center  bg-gray-900 shadow-2 fixed-bottom-toolbar justify-content-center" style="border-top-left-radius: 30px; border-top-right-radius: 30px;margin: 0px !important;">
+        <ng-container *ngFor="let item of bottom_menus">
+            <div class="col text-webkit-center">
+                <!-- hover:bg-white-alpha-10 -->
+                <button class="btn btn-link nav-link text-white h-3rem w-3rem border-circle  transition-all transition-duration-200" [routerLink]="item.menu_link" (click)="changeMenu(item.menu_name)">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <i [class]="item.menu_icon" [style]="{'color': active_menu == item.menu_name ? '#fff' : '#A3A3A3'}"></i>
+                        <span style="text-wrap: nowrap;" [style]="{'color': active_menu == item.menu_name ? '#fff' : '#A3A3A3'}" class="font-normal">{{item.menu_name}}</span>
+                    </div>
+                </button>
+            </div>
+        </ng-container>
+    </div>
+
+
+
+<!-- <div class="row text-center align-items-cente  bg-gray-900 shadow-2 fixed-bottom-toolbar justify-content-center" style="border-top-left-radius: 30px; border-top-right-radius: 30px;margin: 0px !important;">
+    <div class="col text-webkit-center">
+        <button class="btn btn-link nav-link text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <i class="pi pi-home text-2xl"></i>
+                <span class="font-normal">Home</span>
+            </div>
+        </button>
+    </div>
+    <div class="col text-webkit-center">
+        <button class="btn btn-link nav-link text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <i class="pi pi-comments text-2xl"></i>
+                <span class="font-normal">Chat</span>
+            </div>
+        </button>
+    </div>
+    <div class="col text-webkit-center">
+        <button class="btn btn-link nav-link text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <i class="pi pi-shopping-bag text-2xl"></i>
+                <span class="font-normal">My world</span>
+            </div>
+        </button>
+    </div>
+    <div class="col text-webkit-center">
+        <button class="btn btn-link nav-link text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <i class="pi pi-user text-2xl"></i>
+                <span class="font-normal">Profile</span>
+            </div>
+        </button>
+    </div>
+
+</div> -->

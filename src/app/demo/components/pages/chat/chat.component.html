@@ -1,0 +1,48 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<p-toolbar styleClass="fixed-top-toolbar">
+    <div class="p-toolbar-group-start text-white">
+        <button routerLink="/"
+         pButton icon="pi pi-angle-left text-2xl" class="btn btn-link nav-link text-white h-3rem w-3rem border-circle  transition-all transition-duration-200">
+            <!-- <i class="pi pi-angle-left
+            text-2xl"></i> -->
+        </button>
+    </div>
+</p-toolbar>
+<!-- <div class="row justify-content-start" style="padding-top: 4rem;">
+    <div class="col-8 msg-div text-start">
+        <span class="msg">What are you doing now?</span>
+    </div>
+
+</div>
+<div class="row justify-content-end" >
+    <div class="col-8 msg-div text-start">
+        <span class="msg">I am working on a new project</span>
+    </div>
+
+</div> -->
+<ng-container *ngFor="let item of chatData;let i = index;">
+    <div class="row" [style]="{'padding-top':i==0? '4rem':''}" [class]="item.sender == 'user' ? 'justify-content-end' : 'justify-content-start'" >
+        <div class="col-10 msg-div text-start">
+            <!-- {{item.text}} -->
+            <span [innerHTML]="item.text" class="msg"></span>
+        </div>
+
+    </div>
+
+</ng-container>
+
+<div class="row fixed-bottom-chat-div align-items-center" style="height:55px">
+    <!-- <textarea styleClass="chat-input"  rows="1" style=""  pInputTextarea [autoResize]="true"></textarea> -->
+<!-- <input type="text" class="chat-input" placeholder="Please enter your answer"> -->
+<textarea rows="1" style="border-radius: 20px; min-height: 55px; width: 85%;" class="chat-input text-white" placeholder="Please enter your answer" [(ngModel)]="query"
+></textarea>
+    <button (click)="checkIfEmpty() ? '': send($event)" class="btn btn-link nav-link text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+        <div class="d-flex flex-column justify-content-center align-items-center"
+        [style]="{'color': checkIfEmpty() ? '#A3A3A3' : '#fff'}"
+        >
+        <i class="pi pi-send text-2xl" *ngIf="!isSending"></i>
+            <p-progressSpinner *ngIf="isSending"  styleClass="w-3rem h-3rem" strokeWidth="6" fill="transparent" animationDuration=".5s"></p-progressSpinner>
+        </div>
+    </button>
+</div>

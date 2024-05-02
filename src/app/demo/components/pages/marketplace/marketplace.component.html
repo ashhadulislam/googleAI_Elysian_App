@@ -1,0 +1,24 @@
+<div class="row  justify-content-center">
+
+    <div class="col-8 p-0" style="padding-top:2rem !important;padding-bottom:2rem !important">
+        <img class="img img-fluid" src="./assets/elysian/elysian-text.png">
+
+    </div>
+</div>
+<div class="row" style="justify-content: space-around;">
+    <ng-container *ngFor="let item of marketPlaceOptions">
+
+        <div class="col-5 p-0 text-center">
+            <div class="row text-webkit-center" style="padding:0px 10px">
+                <div class="card marketplace-card text-center" (click)="amazonMarketPlaceSearch(item.title)">
+                    <div class="row m-auto" style="text-align: -webkit-center;">
+                        <img class="thumbnail img img-fluid" [src]="item.image" alt="" srcset="" [style]="{'width': item.title == 'Entertainment' || item.title == 'Shopping' ? '140px' : ''}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h5 class="text-white text-center">{{item.title}}</h5>
+            </div>
+        </div>
+    </ng-container>
+</div>
